@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div {
+			width: 600px;
+			margin: 0 auto;
+			font-size: 30px;
+		}
+		img {
+			width: 600px;
+			height: 550px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>Количество попыток: <span id="counter">0</span></p>
+		<img id="im" src="map.jpg">
+		<p id="progress">Очень холодно, до клада: 0</p>
+	</div>
+<script>
+function getRandomY(el) {
+	var y = Math.floor( Math.random() * el.height );
+	return y;
+}
+function getRandomX(el) {
+	var x = Math.floor( Math.random() * el.width );
+	return x;
+}
+var lnth;
+var map = document.getElementById('im');
+var counter = document.getElementById('counter');
+var progress = document.getElementById('progress');
+var cord = {
+	x: getRandomX(map),
+	y: getRandomY(map)
+};
+
+map.addEventListener('click', function(e) {
+	counter.innerText++;
+	
+	var tempX = e.offsetX - cord.x;
+	var tempY = e.offsetY - cord.y;
+	lnth = Math.floor(Math.sqrt(Math.pow(tempX, 2) + Math.pow(tempY, 2)));
+
+		if(lnth >= 100) {
+		progress.innerText = 'Холодно, до клада: ' + lnth;
+	} else if(lnth < 100 && lnth > 50) {
+		progress.innerText = 'Теплее, до клада: ' + lnth;
+	} else if(lnth > 3 && lnth <= 50) {
+		progress.innerText = 'Еще чуток, до клада: ' + lnth;
+	} else if(lnth <= 3) {
+		progress.innerText = 'Ураааа, клад найден!';
+	}
+});
+</script>
+</body>
+</html>
