@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>To-do-list</title>
+	<link rel="stylesheet" href="style/reset.css">
+	<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<div class="main">
+	<h1>To-do-list</h1>
+	<input id="new" type="text" value="Lorem ipsum dolor sit amet">
+	<button id="add">ADD</button>
+	<ul></ul>
+</div>
+
+<script type="text/template" id="item-template">
+	<li>
+		task-text
+		<a href="#" class="remove">&#10008</a>
+		<a href="#" class="done">&#10003</a>
+	</li>
+</script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='scripts/todolist.js'></script>
+</body>
+</html>

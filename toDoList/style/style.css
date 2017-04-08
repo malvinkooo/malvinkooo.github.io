@@ -1,0 +1,81 @@
+body {
+  min-width: 600px;
+  font-family: sans-serif;
+  font-size: 0;
+}
+.main {
+  padding: 10px;
+  box-sizing: border-box;
+  width: 600px;
+  margin: 30px auto 0 auto;
+  font-size: 20px;
+}
+.main h1 {
+  font-size: 30px;
+  padding: 20px 0;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+  background: linear-gradient(to bottom, #cfe7fa 0%, #3a688e 100%);
+  box-shadow: inset 0 -3px 2px rgba(255, 255, 255, 0.5), 0 1px 3px rgba(0, 0, 0, 0.64);
+}
+.main input {
+  display: inline-block;
+  width: 100%;
+  height: 25px;
+  box-sizing: border-box;
+}
+.main button {
+  width: 100%;
+  height: 25px;
+}
+.main ul {
+  padding: 0 10px;
+}
+.main ul li {
+  position: relative;
+  padding: 20px 80px 20px 5px;
+  border-bottom: 1px dashed black;
+}
+.main ul li.task-done {
+  text-decoration: line-through;
+  color: gray;
+}
+.main ul li:last-child {
+  border: none;
+}
+.main ul li:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.main ul li:hover a {
+  display: block;
+}
+.main ul li a {
+  position: absolute;
+  display: none;
+  margin-right: 0;
+  bottom: 2px;
+  width: 30px;
+  height: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  vertical-align: middle;
+  text-align: center;
+}
+.main ul li a.done {
+  right: 2px;
+  background-color: lightgreen;
+}
+.main ul li a.done:hover {
+  opacity: .5;
+}
+.main ul li a.remove {
+  right: 35px;
+  background-color: pink;
+}
+.main ul li a.remove:hover {
+  opacity: .5;
+}
