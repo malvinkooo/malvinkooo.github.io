@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>Document</title>
+	<style>
+#popup__toggle {
+	top:200px;
+	left:500px;
+	position:fixed;
+}
+.circlephone {
+	box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+	border: 2px solid #29AEE3;
+	width:150px;
+	height:150px;
+	bottom:-25px;
+	right:10px;
+	position:absolute;
+	-webkit-border-radius:100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	opacity: .5;
+	-webkit-animation: circle-anim 2.4s infinite ease-in-out !important;
+	-moz-animation: circle-anim 2.4s infinite ease-in-out !important;
+	-ms-animation: circle-anim 2.4s infinite ease-in-out !important;
+	-o-animation: circle-anim 2.4s infinite ease-in-out !important;
+	animation: circle-anim 2.4s infinite ease-in-out !important;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all 0.5s;
+}
+.circle-fill {
+	box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+	background-color:#29AEE3;
+	width:100px;
+	height:100px;
+	bottom:0px;
+	right:35px;
+	position:absolute;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	border: 2px solid transparent;
+	-webkit-animation: circle-fill-anim 2.3s infinite ease-in-out;
+	-moz-animation: circle-fill-anim 2.3s infinite ease-in-out;
+	-ms-animation: circle-fill-anim 2.3s infinite ease-in-out;
+	-o-animation: circle-fill-anim 2.3s infinite ease-in-out;
+	animation: circle-fill-anim 2.3s infinite ease-in-out;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all 0.5s;
+}
+/*.img-circle {
+	box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+	width:72px;
+	height:72px;
+	bottom: 14px;
+	right: 49px;
+	position:absolute;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	border: 2px solid transparent;
+	opacity: .7;
+	background-color:#29AEE3;
+}
+.img-circleblock {
+	box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+	width:72px;
+	height:72px;
+	background-image: url(http://gnatkovsky.com.ua/files/pulseknop/mini4.png);
+	background-position: center center;
+	background-repeat:no-repeat;
+	animation-name: tossing;
+	-webkit-animation-name: tossing;
+	animation-duration: 1.5s;
+	-webkit-animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}*/
+.img-circle:hover {
+	opacity: 1;
+}
+@keyframes pulse {
+	0% {
+		transform: scale(0.9);
+		opacity: 1;
+	}
+  	50% {
+  		transform: scale(1);
+  		opacity: 1;
+  	}   
+  	100% {
+  		transform: scale(0.9);
+  		opacity: 1;
+  	}
+  }
+@-webkit-keyframes pulse {
+ 	0% {
+ 		-webkit-transform: scale(0.95);
+ 		opacity: 1;
+ 	}
+  	50% {
+  		-webkit-transform: scale(1);
+  		opacity: 1;
+  	}   
+  	100% {
+  		-webkit-transform: scale(0.95);
+  		opacity: 1;
+  	}
+}
+@keyframes tossing {
+  	0% {
+  		transform: rotate(-8deg);
+  	}
+  	50% {
+  		transform: rotate(8deg);
+  	}
+  	100% {
+  		transform: rotate(-8deg);
+  	}
+}
+@-webkit-keyframes tossing {
+  	0% {
+  		-webkit-transform: rotate(-8deg);
+  	}
+  	50% {
+  		-webkit-transform: rotate(8deg);
+  	}
+  	100% {
+  		-webkit-transform: rotate(-8deg);
+  	}
+}
+@-moz-keyframes circle-anim {
+  	0% {
+  		-moz-transform: rotate(0deg) scale(0.5) skew(1deg);
+  		opacity: .1;
+  		-moz-opacity: .1;
+  		-webkit-opacity: .1;
+  		-o-opacity: .1;
+  	}
+  	30% {
+  		-moz-transform: rotate(0deg) scale(0.7) skew(1deg);
+  		opacity: .5;
+  		-moz-opacity: .5;
+  		-webkit-opacity: .5;
+  		-o-opacity: .5;
+  	}
+  	100% {
+  		-moz-transform: rotate(0deg) scale(1) skew(1deg);
+  		opacity: .6;
+  		-moz-opacity: .6;
+  		-webkit-opacity: .6;
+  		-o-opacity: .1;
+  	}
+}
+@-webkit-keyframes circle-anim {
+  	0% {
+  		-webkit-transform: rotate(0deg) scale(0.5) skew(1deg);
+  		-webkit-opacity: .1;
+  	}
+  	30% {
+  		-webkit-transform: rotate(0deg) scale(0.7) skew(1deg);
+  		-webkit-opacity: .5;
+  	}
+  	100% {
+  		-webkit-transform: rotate(0deg) scale(1) skew(1deg);
+  		-webkit-opacity: .1;
+  	}
+}
+@-o-keyframes circle-anim {
+  	0% {
+  		-o-transform: rotate(0deg) kscale(0.5) skew(1deg);
+  		-o-opacity: .1;
+  	}
+  	30% {
+  		-o-transform: rotate(0deg) scale(0.7) skew(1deg);
+  		-o-opacity: .5;
+  	}
+  	100% {
+  		-o-transform: rotate(0deg) scale(1) skew(1deg);
+  		-o-opacity: .1;
+  	}
+}
+@keyframes circle-anim {
+  	0% {
+  		transform: rotate(0deg) scale(0.5) skew(1deg);
+  		opacity: .1;
+  	}
+  	30% {
+  		transform: rotate(0deg) scale(0.7) skew(1deg);
+  		opacity: .5;
+  	}
+  	100% {
+  		transform: rotate(0deg) scale(1) skew(1deg);
+		opacity: .1;
+	}
+}
+@-moz-keyframes circle-fill-anim {
+  	0% {
+  		-moz-transform: rotate(0deg) scale(0.7) skew(1deg);
+  		opacity: .2;
+  	}
+  	50% {
+  		-moz-transform: rotate(0deg) -moz-scale(1) skew(1deg);
+  		opacity: .2;
+  	}
+  	100% {
+  		-moz-transform: rotate(0deg) scale(0.7) skew(1deg);
+  		opacity: .2;
+  	}
+}
+@-webkit-keyframes circle-fill-anim {
+  	0% {
+  		-webkit-transform: rotate(0deg) scale(0.7) skew(1deg);
+  		opacity: .2;
+  	}
+  	50% {
+  		-webkit-transform: rotate(0deg) scale(1) skew(1deg);
+  		opacity: .2;
+  	}
+  	100% {
+  		-webkit-transform: rotate(0deg) scale(0.7) skew(1deg);
+  		opacity: .2;
+  	}
+}
+@-o-keyframes circle-fill-anim {
+  	0% {
+  		-o-transform: rotate(0deg) scale(0.7) skew(1deg);
+  		opacity: .2;
+  	}
+  	50% {
+  		-o-transform: rotate(0deg) scale(1) skew(1deg);
+  		opacity: .2;
+  	}
+  	100% {
+  		-o-transform: rotate(0deg) scale(0.7) skew(1deg);
+  		opacity: .2;
+  	}
+}
+@keyframes circle-fill-anim {
+  	0% {
+  		transform: rotate(0deg) scale(0.7) skew(1deg);
+  		opacity: .2;
+  	}
+  	50% {
+  		transform: rotate(0deg) scale(1) skew(1deg);
+  		opacity: .2;
+  	}
+  	100% {
+  		transform: rotate(0deg) scale(0.7) skew(1deg);
+  		opacity: .2;
+  	}
+}
+	</style>
+</head>
+<body>
+<!-- <a href="#" id="popup__toggle">
+	<div class="circlephone" style="transform-origin: center;"></div>
+	<div class="circle-fill" style="transform-origin: center;"></div>
+	<div class="img-circle" style="transform-origin: center;">
+		<div class="img-circleblock" style="transform-origin: center;"></div>
+	</div>
+</a> -->
+
+<style>
+	#button {
+  width: 150px;
+  height: 150px;  
+  border-bottom: 2px solid #eee;
+  background-image: -webkit-linear-gradient(top, #999, #d0d0d0 80% );
+  background-image: -moz-linear-gradient(top, #999, #d0d0d0 80% );
+  background-image: -ms-linear-gradient(top, #999, #d0d0d0 80% );
+  background-image: -o-linear-gradient(top, #999, #d0d0d0 80% );
+  background-image: linear-gradient(top, #999, #d0d0d0 80% );
+  -moz-border-radius: 100px;  
+  -webkit-border-radius: 100px;  
+  border-radius: 100px;
+  box-shadow: inset rgba(0,0,0,0.2) 0px 5px 6px ;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+  position: absolute;
+}
+/*#button .circle-fill {
+	box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+	background-color:#434242;
+	width:150px;
+	height:150px;
+	    bottom: -2px;
+    right: -3px;
+	position:absolute;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	border: 2px solid transparent;
+	-webkit-animation: circle-fill-anim 2.3s infinite ease-in-out;
+	-moz-animation: circle-fill-anim 2.3s infinite ease-in-out;
+	-ms-animation: circle-fill-anim 2.3s infinite ease-in-out;
+	-o-animation: circle-fill-anim 2.3s infinite ease-in-out;
+	animation: circle-fill-anim 2.3s infinite ease-in-out;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all 0.5s;
+}*/
+#button .circlephone {
+	box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+	border: 3px solid #b4b0b0;
+	width:250px;
+	height:250px;
+    bottom: -36%;
+    right: -36%;
+	position:absolute;
+	-webkit-border-radius:100%;
+	-moz-border-radius: 100%;
+	border-radius: 100%;
+	opacity: .5;
+	-webkit-animation: circle-anim 2.4s infinite ease-in-out !important;
+	-moz-animation: circle-anim 2.4s infinite ease-in-out !important;
+	-ms-animation: circle-anim 2.4s infinite ease-in-out !important;
+	-o-animation: circle-anim 2.4s infinite ease-in-out !important;
+	animation: circle-anim 2.4s infinite ease-in-out !important;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all 0.5s;
+}
+.butt {
+  position: absolute;
+  width: 130px;
+  height: 126px;
+  left: 10px;
+  top: 11px;
+  cursor: pointer;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 35px;
+  color: #888;
+  text-shadow: 0px 1px 0px #fff;
+  text-align: center;
+  padding-top: 37px;
+  -moz-border-radius: 100px;  
+  -webkit-border-radius: 100px;  
+  border-radius: 100px;  
+  background-image: -webkit-linear-gradient(top, #eee, #bbb 70%, #9f9f9f 100% );
+  background-image: -moz-linear-gradient(top, #eee, #bbb 70%, #9f9f9f 100% );
+  background-image: -ms-linear-gradient(top, #eee, #bbb 70%, #9f9f9f 100% );
+  background-image: -o-linear-gradient(top, #eee, #bbb 70%, #9f9f9f 100% );
+  background-image: linear-gradient(top, #eee, #bbb 70%, #9f9f9f 100% );
+  background-position: 0 6px;
+  background-color: #eee;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: rgba(0,0,0,.4) 0 3px 6px;  
+  -moz-box-shadow: rgba(0,0,0,.4) 0 3px 6px;  
+  box-shadow: rgba(0,0,0,.4) 0 3px 6px;
+  -webkit-transition: all .1s ease-in;
+  -moz-transition: all .1s ease-in;
+  -ms-transition: all .1s ease-in;
+  -o-transition: all .1s ease-in;
+  transition: all .1s ease-in;
+}
+
+.butt:hover {
+  background-position: 0 0px;
+  -webkit-box-shadow: rgba(0,0,0,.4) 0 3px 8px;  
+  -moz-box-shadow: rgba(0,0,0,.4) 0 3px 8px;  
+  box-shadow: rgba(0,0,0,.4) 0 3px 8px;
+	text-decoration: none;
+  width: 120px;
+  height: 120px;
+  margin: 2px 0 0 2px;   
+  border-bottom: 1px solid #fff;
+  font-size: 33px;
+  color: #777;
+	left: 13px;
+    top: 12px;
+  -webkit-box-shadow: inset rgba(0,0,0,.5) 0px 5px 10px;
+  -moz-box-shadow: inset rgba(0,0,0,.5) 0px 5px 10px;
+  box-shadow: inset rgba(0,0,0,.5) 0px 5px 10px;
+}
+</style>
+<div id="button">
+	<div class="circlephone" style="transform-origin: center;"></div>
+  	<a class="butt" id="toggle-popup">PUSH</a>
+</div>
+
+<div class="popup-form-wrapper hidden">
+	<div class="form-close">x</div>
+	<div class="popup-form-block">
+		<h2 class="popup-form-title">
+			Вызов мастера
+		</h2>
+		<form action="" id="popup-form">
+			<div class="input-block">
+				<div class="input">
+					<input type="text" placeholder="Ваше имя">
+				</div>
+				<div class="input">
+					<input type="text" placeholder="Телефон">
+				</div>
+			</div>
+			<div class="input-block">
+				<textarea name="" id="" cols="30" rows="5" placeholder="Комментарий (кратко опишите проблему)"></textarea>
+			</div>
+			<div class="submit-block">
+				<input type="submit" value="отправить">
+			</div>
+		</form>
+	</div>
+</div>
+<style>
+.popup-form-wrapper {
+	font-size: 0;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: white;
+	width: 700px;
+	padding: 20px;
+	box-sizing: border-box;
+	position: relative;
+}
+.popup-form-wrapper.hidden {
+	display: none;
+} 
+.popup-form-wrapper .form-close {
+	font-size: 30px;
+	color: silver;
+	cursor: pointer;
+	position: absolute;
+	right: 30px;
+}
+.popup-form-wrapper .popup-form-title {
+	color: #0175bc;
+	font-family: Roboto, sans-serif;
+	font-size: 30px;
+	font-weight: 300;
+	line-height: 36px;
+	text-align: center;
+	margin-top: 45px;
+}
+.popup-form-wrapper .input-block {
+	display: inline-block;
+	vertical-align: bottom;
+	width: 46%;
+	margin-right: 2%;
+	margin-left: 2%;
+	-webkit-box-shadow: 10px 10px 36px -18px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 36px -18px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 36px -18px rgba(0,0,0,0.75);
+}
+.popup-form-wrapper .input-block input {
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 15px;
+    display: block;
+    box-sizing: border-box;
+}
+.popup-form-wrapper .input-block input,
+.popup-form-wrapper .input-block textarea {
+	width: 100%;
+	border: none;
+	box-shadow: 1px 1px 1px rgba(21, 23, 24, 0.27);
+    background-color: #ffffff;
+	color: #828282;
+}
+.popup-form-wrapper .input-block input::-webkit-input-placeholder,
+.popup-form-wrapper .input-block textarea::-webkit-input-placeholder {
+  color: #828282;
+}
+.popup-form-wrapper .input-block input::-moz-placeholder,
+.popup-form-wrapper .input-block textarea::-moz-placeholder { /* Firefox 19+ */
+  color: #828282;
+}
+.popup-form-wrapper .input-block input:-ms-input-placeholder,
+.popup-form-wrapper .input-block textarea:-ms-input-placeholder { /* IE 10+ */
+  color: #828282;
+}
+.popup-form-wrapper .input-block input:-moz-placeholder,
+.popup-form-wrapper .input-block textarea:-moz-placeholder { /* Firefox 18- */
+  color: #828282;
+}
+.popup-form-wrapper .input-block textarea {
+	font-size: 20px;
+	line-height: 20px;
+	padding: 10px;
+}
+.popup-form-wrapper .submit-block {
+	text-align: center;
+	margin-top: 50px;
+}
+.popup-form-wrapper .submit-block input {
+	color: #444444;
+	padding: 5px 10px;
+	font-family: sans-serif, Roboto;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-weight: 400;
+	line-height: 36px;
+	letter-spacing: 1.68px;
+	border: none;
+	box-shadow: 1px 1px 1px rgba(21, 23, 24, 0.27);
+	background-color: #f9f9f9;
+}
+#popup-form {
+	margin-top: 40px;
+}
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script>
+	$("#toggle-popup").click(function(){
+		$(".popup-form-wrapper").toggleClass("hidden");
+	});
+	$(".popup-form-wrapper .form-close").click(function(){
+		$(".popup-form-wrapper").toggleClass("hidden");
+	});
+</script>
+</body>
+</html>
